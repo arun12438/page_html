@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Left Panel with Click Events</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="left-panel">
+<ul>
+    <li> <a class="navigation-link" href="#home">Home</a> </li> 
+    <li><a class="navigation-link" href="#contact">Contact</a> </li> 
+     <li><a class="navigation-link" href="#information">Information</a> </li>
+     <li> <a class="navigation-link" href="#guide">Guide</a> </li>
+</ul>
+</div>
+<div class="content-area">
+    <div id="home" class="content">
+      <h1>Home</h1>
+      <p>Welcome to the home page!</p>
+    </div>
+
+    <div id="contact" class="content">
+      <h1>Contact</h1>
+      <p>you can contact with me by email - <u> techarun121@gmail.com </u> and phone no: <u> 8287310109</u> </p>
+    </div>
+
+    <div id="information" class="content">
+      <h1>Information</h1>
+      <p>Hi, <br> My Name Is Arun Kumar . <br>  I am Doing BTech Fron Delhi Technological University. I know DSA , and front- end development</p>
+    </div>
+
+    <div id="guide" class="content">
+      <h1>Guide</h1>
+      <p>
+        <h2>this is the guide for the  developers:</h2>
+        <ol>
+            <li> Understand your audience.</li>
+           <li>Focus on providing value. </li> 
+            <li> Keep content concise (but don't skimp on technical details)</li>
+            <li> Add more than just words.</li>
+           <li> Promote your content. </li>
+            <li> Engage with your audience.</li>
+           <li> Conclusion.</li> 
+
+        </ol>
+
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript to handle navigation and show/hide content
+    const navigationLinks = document.querySelectorAll('.navigation-link');
+    const contentAreas = document.querySelectorAll('.content');
+
+    // Add click event listener to each navigation link
+    navigationLinks.forEach(link => {
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Remove 'active' class from all navigation links
+        navigationLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+
+        // Hide all content areas
+        contentAreas.forEach(area => {
+          area.style.display = 'none';
+        });
+
+        // Add 'active' class to the clicked link
+        link.classList.add('active');
+
+        // Show the corresponding content area
+        const targetId = link.getAttribute('href').substr(1);
+        const targetContent = document.getElementById(targetId);
+        targetContent.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
+
